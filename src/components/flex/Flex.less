@@ -1,0 +1,58 @@
+// TODO: https://developer.mozilla.org/en-US/docs/Web/CSS/place-items
+.flex {
+	display: flex;
+
+	&.center {
+		justify-content: center;
+		align-items: center;
+	}
+
+	&.spread {
+		justify-content: space-between;
+	}
+
+	&.end {
+		justify-content: flex-end;
+		align-items: flex-end;
+	}
+
+	&.flex-row {
+		flex-direction: row;
+
+		&.center-x {
+			justify-content: center;
+		}
+
+		&.center-y {
+			align-items: center;
+		}
+
+		&.end-x {
+			justify-content: flex-end;
+		}
+
+		&.end-y {
+			align-items: flex-end;
+		}
+	}
+
+	&.flex-column {
+		flex-direction: column;
+
+		&.center-x {
+			align-items: center;
+		}
+
+		&.center-y {
+			justify-content: center;
+		}
+
+		&.end-x {
+			align-items: flex-end;
+		}
+
+		&.end-y {
+			justify-content: flex-end;
+		}
+	}
+}
