@@ -1,9 +1,9 @@
 import classnames from 'classnames';
 import {CSSProperties, MouseEvent, MouseEventHandler, ReactNode, RefObject, useEffect, useRef} from 'react';
-import {EMPTY_STRING} from '../../constants/common-constants';
-import {RELATIVE, STATIC} from '../../constants/css-constants';
-import {getElmActualCssProp} from '../../utils/elm-utils';
-import Flex from '../flex/Flex';
+import {EMPTY_STRING} from '~constants/common-constants';
+import {RELATIVE, STATIC} from '~constants/css-constants';
+import {getElmActualCssProp} from '~utils/elm-utils';
+import Flex from '~components/flex/Flex';
 import './Overlay.css';
 
 // TODO:? fade-in/out? maybe leave it to classname
