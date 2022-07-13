@@ -1,10 +1,35 @@
-import React from 'react';
-import {FlexContainerProps} from './flex-props';
-import Flex from './Flex';
+import classNames from 'classnames';
+import {RowProps} from './flex-types';
+import {createBaseClassnameGetter, ROW} from './flex-utils';
 
-const Row: React.FunctionComponent<FlexContainerProps> = (props) =>
-	// TODO: Row default is centerY
-	<Flex row {...props} />
-;
+const ALIGN_TOP = 'align-top';
+const ALIGN_BOTTOM = 'align-bottom';
 
-export default Row;
+const getBaseClassname = createBaseClassnameGetter(ROW);
+const getModifierClassname = (alignTop: boolean, alignBottom: boolean) => {
+	if (alignTop) return ALIGN_TOP;
+	if (alignBottom) return ALIGN_BOTTOM;
+
+	return '';
+};
+
+export const Row = ({
+	elm = 'div',
+	center = false,
+	spread = false,
+	end = false,
+	alignTop = false,
+	alignBottom = false,
+	className,
+	children,
+	...otherProps
+}: RowProps) => {
+	const Elm = elm;
+	const cls = classNames(
+		className,
+		getBaseClassname(center, spread, end),
+		getModifierClassname(alignTop, alignBottom),
+	);
+
+	return <Elm className={cls} {...otherProps}>{children}</Elm>;
+};

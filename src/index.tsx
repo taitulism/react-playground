@@ -1,4 +1,3 @@
-// import './main.css';
 import {createRoot} from 'react-dom/client';
 import {AppCtx} from './app/app-store-context';
 import {AppStore} from './app/app-store';
