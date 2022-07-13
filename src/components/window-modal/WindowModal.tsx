@@ -1,6 +1,6 @@
 import {ReactNode, useEffect} from 'react';
 import {createPortal} from 'react-dom';
-import Overlay from '~components/overlay/Overlay';
+import Overlay from 'components/overlay/Overlay';
 
 const CONTAINER_ID = 'window-modal-container';
 const MASK_CLASSNAME = 'mask';
