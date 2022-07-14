@@ -8,6 +8,6 @@ export const App = observer(() => {
 	return <>
 		<h1>My App</h1>
 
-		{app.isLoading ? 'loading' : 'idle'}
+		{app.isLoading ? 'Loading...' : 'Loaded'}
 	</>;
 });
