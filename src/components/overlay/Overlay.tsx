@@ -1,39 +1,58 @@
 import classnames from 'classnames';
-import {CSSProperties, MouseEvent, MouseEventHandler, ReactNode, RefObject, useEffect, useRef} from 'react';
+import {
+	HTMLAttributes,
+	MouseEvent,
+	MouseEventHandler,
+	ReactNode,
+	RefObject,
+	useEffect,
+	useRef,
+} from 'react';
 import {EMPTY_STRING} from 'constants/common-constants';
 import {RELATIVE, STATIC} from 'constants/css-constants';
 import {getElmActualCssProp} from 'utils/elm-utils';
-import Flex from 'components/flex/old/Flex';
 import './Overlay.css';
 
 // TODO:? fade-in/out? maybe leave it to classname
 
-interface Props {
+const OVERLAY_CLASSNAME = 'overlay';
+const MASK_CLASSNAME = 'mask';
+
+interface Props extends HTMLAttributes<HTMLDivElement> {
 	className?: string;
-	style?: CSSProperties;
 	onClick?: MouseEventHandler<HTMLDivElement>;
 	children?: ReactNode;
 }
 
-const CLASSNAME = 'overlay';
-
-export default ({className, style, onClick, children}: Props) => {
-	const overlayClassName = classnames(CLASSNAME, className);
+export const Overlay = (props: Props) => {
+	const {className, onClick, children, ...moreProps} = props;
+	const overlayClassName = classnames(OVERLAY_CLASSNAME, className);
 	const ref = useChangeParentPosition<HTMLDivElement>();
 	const clickHandler = !onClick
 		? undefined
 		: (ev: MouseEvent<HTMLDivElement>) => {
-			// Only when the click is on the overlay itself, not on any of its children
+			// click on the overlay itself, not on its children
 			if (ev.target === ev.currentTarget) {
 				onClick(ev);
 			}
 		};
 
 	return (
-		<Flex center className={overlayClassName} style={style} onClick={clickHandler} refObj={ref}>
+		<div
+			className={overlayClassName}
+			onClick={clickHandler}
+			ref={ref}
+			{...moreProps}
+		>
 			{children}
-		</Flex>
+		</div>
 	);
+};
+
+export const Mask = ({className, children, ...moreProps}: Props) => {
+	const maskClassName = classnames(MASK_CLASSNAME, className);
+
+	return <Overlay className={maskClassName} {...moreProps}>{children}</Overlay>;
 };
 
 const shouldChangePosition = (position: string) =>
