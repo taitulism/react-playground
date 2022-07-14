@@ -8,6 +8,11 @@
 	"homepage": "https://github.com/taitulism/TPL#readme",
 	"repository": "github:taitulism/TPL",
 	"author": "Taitu Lizenbaum <taitu.dev@gmail.com>",
+	"alias": {
+		"components": "./src/components",
+		"constants": "./src/constants",
+		"utils": "./src/utils"
+	},
 	"scripts": {
 		"start": "parcel src/index.html",
 		"lint": "eslint ./src",
