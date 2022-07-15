@@ -1,0 +1,87 @@
+/* TODO: consider the following: */
+/* 	- add .flex */
+/* 	- add full name column */
+/* 	- document the concept */
+/* 	- https://developer.mozilla.org/en-US/docs/Web/CSS/place-items */
+
+
+/* Flex Row */
+.flex-row {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+	&-start {
+		&:extend(.flex-row);
+		justify-content: flex-start;
+	}
+
+	&-center {
+		&:extend(.flex-row);
+		justify-content: center;
+	}
+
+	&-spread {
+		&:extend(.flex-row);
+		justify-content: space-between;
+	}
+
+	&-end {
+		&:extend(.flex-row);
+		justify-content: flex-end;
+	}
+}
+
+
+
+/* Flex Column */
+.flex-col {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	&-start {
+		&:extend(.flex-col);
+		justify-content: flex-start;
+	}
+
+	&-center {
+		&:extend(.flex-col);
+		justify-content: center;
+	}
+
+	&-spread {
+		&:extend(.flex-col);
+		justify-content: space-between;
+	}
+
+	&-end {
+		&:extend(.flex-col);
+		justify-content: flex-end;
+	}
+}
+
+/*
+	Secondary Modifiers
+	top / bottom for rows
+	left / right for column
+*/
+[class^='flex-row'] {
+	&.align-top {
+		align-items: flex-start;
+	}
+
+	&.align-bottom {
+		align-items: flex-end;
+	}
+}
+
+[class^='flex-col'] {
+	&.align-left {
+		align-items: flex-start;
+	}
+
+	&.align-right {
+		align-items: flex-end;
+	}
+}
