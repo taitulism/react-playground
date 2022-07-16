@@ -1,14 +1,17 @@
+@import './font-faces.less';
+@import './fonts.less';
 @import './colors.less';
 
-/* CSS Reset Fixes */
+/*-----CSS Reset Fixes-----*/
 body {
 	line-height: 1.4 !important;
 }
 
-h1 {
+h1, h2, h3, h4, h5, h6 {
 	margin: 0;
-	padding: 0.67em 0;
+	padding: 0.24em 0;
 }
+/*-------------------------*/
 
 #app {
 	min-width: 100%;
@@ -16,6 +19,7 @@ h1 {
 	width: fit-content;
 	color: white;
 	background-color: @dark-gray;
+	font-family: @defaultFont;
 }
 
 #window-modal-container {
@@ -31,4 +35,8 @@ h1 {
 
 .overlay.mask {
 	background: @gray;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: @Bold;
 }
