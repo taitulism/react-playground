@@ -1,5 +1,5 @@
-import {observer} from 'mobx-react-lite';
 import {useContext} from 'react';
+import {observer} from 'mobx-react-lite';
 import {AppCtx} from './app-store-context';
 
 export const App = observer(() => {
@@ -8,6 +8,6 @@ export const App = observer(() => {
 	return <>
 		<h1>My App</h1>
 
-		{app.isLoading ? 'Loading...' : 'Loaded'}
+		<div>{<app.CurrentPageComponent />}</div>
 	</>;
 });

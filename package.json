@@ -9,6 +9,7 @@
 	"repository": "github:taitulism/TPL",
 	"author": "Taitu Lizenbaum <taitu.dev@gmail.com>",
 	"alias": {
+		"app": "./src/app",
 		"components": "./src/components",
 		"constants": "./src/constants",
 		"utils": "./src/utils"
