@@ -1,8 +1,9 @@
-/* TODO: consider the following: */
-/* 	- add .flex */
-/* 	- add full name column */
-/* 	- document the concept */
-/* 	- https://developer.mozilla.org/en-US/docs/Web/CSS/place-items */
+/* TODO: Consider the following:
+	* add .flex
+	* add full name column
+	* document the concept (row has default, col doesn't)
+	* https://developer.mozilla.org/en-US/docs/Web/CSS/place-items
+*/
 
 
 /* Flex Row */
@@ -38,7 +39,6 @@
 .flex-col {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 
 	&-start {
 		&:extend(.flex-col);
@@ -62,6 +62,7 @@
 }
 
 /*
+	TODO: How does this selector perform when use by multiple elms?
 	Secondary Modifiers
 	top / bottom for rows
 	left / right for column
@@ -79,6 +80,10 @@
 [class^='flex-col'] {
 	&.align-left {
 		align-items: flex-start;
+	}
+
+	&.align-center {
+		align-items: center;
 	}
 
 	&.align-right {
