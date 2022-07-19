@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import type {HTMLAttributes} from 'react';
-import './AppPage.css';
 
 // TODO: NOT IN USE. Delete or move to common
 // String Or String-Araay StrOrStrAry
@@ -10,7 +9,7 @@ import './AppPage.css';
 type CommonComponentProps = HTMLAttributes<HTMLElement>
 
 export const AppPageComponent = ({className, children, ...moreProps}: CommonComponentProps) => {
-	const clsnm = classNames('app-page', className);
+	const clsnm = classNames(className, 'flex-grow');
 
 	return (
 		<main className={clsnm} {...moreProps}>

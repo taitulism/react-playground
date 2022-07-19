@@ -1,6 +1,6 @@
 import {useContext} from 'react';
 import {AppCtx} from 'app/app-store-context';
-import {AppPageComponent} from 'components/app-components/app-page/AppPage';
+import {AppPageComponent} from 'components/app-components/AppPage';
 import {AppPage} from 'app/app-types';
 
 export const Home = () => {
