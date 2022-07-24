@@ -15,15 +15,16 @@ import './Overlay.css';
 
 // TODO:? fade-in/out? maybe leave it to classname
 
+// TODO: consts app-classnames.ts
 const OVERLAY_CLASSNAME = 'overlay';
 const MASK_CLASSNAME = 'mask';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
-	className?: string;
 	onClick?: MouseEventHandler<HTMLDivElement>;
 	children?: ReactNode;
 }
 
+// TODO:? verify single Overlay in parent?
 export const Overlay = (props: Props) => {
 	const {className, onClick, children, ...moreProps} = props;
 	const overlayClassName = classnames(OVERLAY_CLASSNAME, className);
@@ -49,11 +50,10 @@ export const Overlay = (props: Props) => {
 	);
 };
 
-export const Mask = ({className, children, ...moreProps}: Props) => {
-	const maskClassName = classnames(MASK_CLASSNAME, className);
-
-	return <Overlay className={maskClassName} {...moreProps}>{children}</Overlay>;
-};
+// TODO: Mask is an app/oppinionated. Move it away.
+export const Mask = ({children, ...moreProps}: Props) => (
+	<Overlay className={MASK_CLASSNAME} {...moreProps}>{children}</Overlay>
+);
 
 const shouldChangePosition = (position: string) =>
 	position === STATIC || position === EMPTY_STRING;
@@ -67,7 +67,7 @@ const useChangeParentPosition = <T extends HTMLElement, >(): RefObject<T> => {
 
 		if (!elm || !parent) return;
 
-		const actualPosition = getElmActualCssProp(parent, 'position');
+		const actualPosition = getElmActualCssProp(parent, 'position'); // TODO: const
 
 		if (!shouldChangePosition(actualPosition)) return;
 

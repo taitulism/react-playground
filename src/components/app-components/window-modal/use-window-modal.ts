@@ -1,3 +1,4 @@
+import {DIV} from 'constants/html-constants';
 import {useEffect} from 'react';
 
 // TODO: this is very opinionated. an App thing. move elsewhere.
@@ -19,7 +20,7 @@ function getOrCreateModalContainer (id: string): HTMLElement {
 }
 
 function createModalContainer (id: string): HTMLElement {
-	const modalContainer = document.createElement('section');
+	const modalContainer = document.createElement(DIV);
 
 	modalContainer.id = id;
 

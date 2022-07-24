@@ -1,3 +1,5 @@
+import {INPUT} from 'constants/html-constants';
+
 export type Accept = string | Array<string>;
 
 /* TODO: checkout `window.showOpenFilePicker`
@@ -25,8 +27,9 @@ function _chooseFile (
 	multiple: boolean = false,
 ): Promise<File | FileList> {
 	return new Promise((resolve) => {
-		const input = document.createElement('input');
+		const input = document.createElement(INPUT);
 
+		// TODO: constants
 		input.setAttribute('type', 'file');
 		input.setAttribute('accept', accept(fileTypes));
 		input.setAttribute('multiple', String(multiple));

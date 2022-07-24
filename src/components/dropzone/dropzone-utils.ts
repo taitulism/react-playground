@@ -9,6 +9,7 @@ export const getFileList = (dataTransfer: DataTransfer): FileList => dataTransfe
 export const isReallyEnter = (ev: DragEvent) => normalizedDragEnterLeave(ev);
 export const isReallyLeave = (ev: DragEvent) => normalizedDragEnterLeave(ev);
 
+// TODO: check if this works instead: `ev.target === ev.currentTarget`
 const normalizedDragEnterLeave = (ev: DragEvent): boolean => {
 	const cameFromElm = ev.relatedTarget;
 
@@ -35,7 +36,7 @@ const isKindAllowed = (kind: Kind, dataTransfer: DataTransfer) => {
 const isMultiOverSingle = (
 	multiple: boolean,
 	kind: Kind,
-	dataTransfer: DataTransfer
+	dataTransfer: DataTransfer,
 ) => (
 	multiple
 		? false
@@ -45,7 +46,7 @@ const isMultiOverSingle = (
 // TODO:? move back to DZ.tsx?
 export function validateDrag (
 	dragData: DataTransfer,
-	{multiple, kind}: {multiple: boolean, kind: Kind}
+	{multiple, kind}: {multiple: boolean, kind: Kind},
 ): ValidationResult {
 	let issue = DropzoneError.NoIssue;
 

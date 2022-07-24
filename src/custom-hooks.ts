@@ -1,11 +1,12 @@
 import {useState} from 'react';
 
-export const useToggle = () => {
-	const [isEnabled, setIsEnabled] = useState(false);
+export const useToggle = (initialValue: boolean = false) => {
+	const [isEnabled, setIsEnabled] = useState<boolean>(initialValue);
 
 	const toggle = (newState = !isEnabled) => {
 		setIsEnabled(newState);
 	};
 
-	return [isEnabled, toggle];
+	// TODO: "as const" https://fettblog.eu/typescript-react-typeing-custom-hooks/
+	return [isEnabled, toggle] as const;
 };

@@ -4,6 +4,13 @@
 	* https://developer.mozilla.org/en-US/docs/Web/CSS/place-items
 */
 
+/* Centered */
+.flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 /* Flex Item */
 .flex-grow {
 	flex-grow: 1;
@@ -69,8 +76,10 @@
 	Secondary Modifiers
 	top / bottom for rows
 	left / right for column
+
+	TODO: class^= means that flex-row must be first!
 */
-[class^='flex-row'] {
+[class*='flex-row'] {
 	&.align-top {
 		align-items: flex-start;
 	}
@@ -80,7 +89,7 @@
 	}
 }
 
-[class^='flex-col'] {
+[class*='flex-col'] {
 	&.align-left {
 		align-items: flex-start;
 	}

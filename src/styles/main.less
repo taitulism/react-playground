@@ -26,16 +26,23 @@ h1, h2, h3, h4, h5, h6 {
 #window-modal-container {
 	display: none;
 	position: fixed;
-	justify-content: center;
-	align-items: center;
 	height: 100vh;
 	width: 100vw;
 	top: 0;
 	left: 0;
 }
 
-.overlay.mask {
-	background: @gray;
+.mask {
+	background: @mask-gray;
+}
+
+.popup {
+	margin: 10vh 0;
+}
+
+.relative-top {
+	position: relative;
+	top: -25vh;
 }
 
 h1, h2, h3, h4, h5, h6 {

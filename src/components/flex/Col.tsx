@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import {DIV} from 'constants/html-constants';
 import {ColProps} from './flex-types';
 import {createBaseClassnameGetter, COLUMN} from './flex-utils';
 
@@ -14,7 +15,7 @@ const getModifierClassname = (alignLeft: boolean, alignRight: boolean) => {
 };
 
 export const Col = ({
-	elm = 'div',
+	elm = DIV,
 	center = false,
 	spread = false,
 	end = false,

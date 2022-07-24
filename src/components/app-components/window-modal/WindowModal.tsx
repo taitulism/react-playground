@@ -1,45 +1,33 @@
-import {ReactNode, useEffect} from 'react';
+import {CSSProperties, PropsWithChildren, ReactNode, useEffect} from 'react';
+import classnames from 'classnames';
 import {createPortal} from 'react-dom';
-import Overlay from 'components/overlay/Overlay';
+import {Overlay} from 'components/overlay/Overlay';
+import {BLOCK, STYLE} from 'constants/css-constants';
+import {isString} from 'utils/typeof-utils';
 
+// TODO: un-oppinionate
 const CONTAINER_ID = 'window-modal-container';
-const MASK_CLASSNAME = 'mask';
 
-interface Props {
-	containerId?: string;
-	escapable?: boolean;
-	noMask?: boolean;
-	children: ReactNode;
-	onClose?: (toggleOff: false) => void;
-}
+// interface WindowModalProps {
+// // children: ReactNode;
+// // TODO:?style?: CSSProperties;
+// // TODO:?className?: string;
+// // TODO:? containerId?: string;
+// // TODO:? containerClassname?: string;
+// }
 
-export default ({
+export const WindowModal = ({
 	children,
-	onClose,
-	escapable = false,
-	noMask = false,
-}: Props) => {
+}: PropsWithChildren) => {
 	const windowModalContainer = document.getElementById(CONTAINER_ID)!;
 
 	useEffect(() => {
-		windowModalContainer.style.display = 'flex';
+		windowModalContainer.style.display = BLOCK;
 
 		return () => {
-			windowModalContainer.removeAttribute('style');
+			windowModalContainer.removeAttribute(STYLE);
 		};
 	}, []);
 
-	// TODO: handle esc keypress
-	const handleOverlayClick = () => {
-		if (escapable && onClose) {
-			onClose(false);
-		}
-	};
-
-	const content = noMask
-		? children
-		: <Overlay className={MASK_CLASSNAME} onClick={handleOverlayClick}>{children}</Overlay>
-	;
-
-	return createPortal(content, windowModalContainer);
+	return createPortal(children, windowModalContainer);
 };
