@@ -9,9 +9,10 @@ export const App = observer(() => {
 	useWindowModal();
 
 	return <>
-		<header className="header">
+		<header>
 			<h1>My App</h1>
 		</header>
 		{<app.CurrentPageComponent />}
+		<footer className="flex-row-center">Youv'e reached the bottom</footer>
 	</>;
 });

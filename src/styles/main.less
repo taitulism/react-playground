@@ -3,21 +3,11 @@
 @import './colors.less';
 
 /*-----CSS Reset Fixes-----*/
-body {
-	line-height: 1.4 !important;
-}
 
-h1, h2, h3, h4, h5, h6 {
-	margin: 0;
-	padding: 0.24em 0;
-}
 /*-------------------------*/
 
 #app {
-	align-items: unset;
-	min-width: 100%;
-	min-height: 100%;
-	width: fit-content;
+	min-height: 100vh; /* TODO: this doesn't support widget size (not full body app) */
 	color: white;
 	background-color: @dark-gray;
 	font-family: @defaultFont;
